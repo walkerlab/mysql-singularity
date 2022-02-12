@@ -1,0 +1,12 @@
+Bootstrap: docker
+From: mysql:8.0.28
+
+%startscript
+    if [ ! -d /var/lib/mysql/mysql ]
+    then
+        echo "MYSQL not initialized, running mysqld --initialize"
+        mysqld --initialize 
+    fi
+
+    echo "Starting mysqld"
+    mysqld
