@@ -74,3 +74,8 @@ Add a new cron job via:
 You can set it for every 5 minutes like
 
     */5 * * * * <path_to>/mysql_deployment.sh
+
+## Running it directly
+Simply use sbatch command to deploy it:
+
+    sbatch mysql_slurm_deployment.slurm --time=14-0:00
