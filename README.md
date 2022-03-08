@@ -61,3 +61,16 @@ To start normally after the first time setup has been done simply run
 
     singularity instance start --bind <path_to_var_lib_mysql>:/var/lib/mysql/ --bind <path_to_var_run_mysqld>:/var/run/mysqld/ --bind <path_to_my.cnf>:/etc/mysql/my.cnf mysql.sif mysql
 
+# SLURM Deployement (HYAK)
+There is a script for scheduling it on the HYAK cluster via direct run or cronjob (Highly Recommneded)
+
+The script will find if the server is already deployed, if it is the script will exist, if not it will deploy it for 14 days (This can be changed later.)
+
+## Cron Job
+Add a new cron job via:
+
+    crontab -e
+
+You can set it for every 5 minutes like
+
+    */5 * * * * <path_to>/mysql_deployment.sh
