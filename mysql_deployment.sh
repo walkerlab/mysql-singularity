@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $(whoami)
 expected_job_name="mysql_server"
 jobs_name=$(squeue -u sitonic -h --format %j)
 
@@ -12,5 +13,5 @@ done
 
 # Failed to find job thus redeploy
 echo "Failed to find MYSQL server deployment, redeploying..."
-sbatch mysql_slurm_deployment.slurm --time=14-0:00
+sbatch --account=walkerlab --partition=gpu-a40 --time=14-0:00 mysql_slurm_deployment.slurm
 
