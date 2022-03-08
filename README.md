@@ -71,11 +71,11 @@ Add a new cron job via:
 
     crontab -e
 
-You can set it for every 5 minutes like
+You can set it for every 5 minutes like with output redirection:
 
-    */5 * * * * <path_to>/mysql_deployment.sh
+    */5 * * * * cd <directory_of_repository> && ./mysql_deployment.sh > <file_to_output_redirection_path>
 
 ## Running it directly
-Simply use sbatch command to deploy it:
+Simply use sbatch command to deploy it for 2 weeks:
 
-    sbatch mysql_slurm_deployment.slurm --time=14-0:00
+    sbatch --account=walkerlab --partition=gpu-a40 --time=14-0:00 mysql_slurm_deployment.slurm
